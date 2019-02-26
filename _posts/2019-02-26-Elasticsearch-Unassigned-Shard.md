@@ -21,7 +21,7 @@ Elasticsearch集群中出现Unassigned Shard大致有如下几种原因：
 
 我们可以使用Elasticsearch中的API(ES5.X)来获取unassigned shard的原因:(<https://cluster:9200/_cluster/allocation/explain?pretty>)。API将会返回所有的unassigned shard以及出现的原因。
 
-##Shard allocation is purposely delayed（暂时还没有遇到）
+##Shard allocation is purposely delayed(暂时还没有遇到)
 如果data node离开集群，master node会故意延时执行shard reallocation来避免shard rebalancing导致的资源消耗，这样离开的data node能在一定时间内恢复为原来的状态。(默认是一分钟)  
 **出现上述情况下的后台日志如下**：  
 >[TIMESTAMP][INFO][cluster.routing] [MASTER NODE NAME] delaying allocation for [54] unassigned shards, next check in [1m]. 
